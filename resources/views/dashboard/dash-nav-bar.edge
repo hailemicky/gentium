@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../../assets/css/main.css" rel="stylesheet">
-  @!section('css')
+  @!section('style')
 
   <!-- =======================================================
   * Template Name: UpConstruction - v1.1.0
@@ -57,7 +57,20 @@
           <ul>
                 
             <li><a href="{{route('dashboard')}}" class={{dashboardActive}}>Dashboard</a></li>
-            <li><a href="{{route('newContent')}}" class={{ contentActive  }}>Content Manager</a></li>
+            {{--  <li><a href="{{route('newContent')}}" class={{ contentActive  }}>Content Manager</a></li>  --}}
+
+              <li class="dropdown"><a href="#" class={{contentActive}}><span>Content Manager</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <ul>
+                <li><a href="{{route('career')}}">Introduction</a></li>
+                <li><a href="{{route('tender')}}">About</a></li>
+                <li><a href="{{route('resource')}}">Product & Service </a></li>
+                <li><a href="{{route('dashCareer')}}" >Project</a></li> 
+                <li><a href="{{route('dashCareer')}}">Team</a></li> 
+                <li><a href="{{route('dashCareer')}}">Testimonial</a></li> 
+              </ul>
+            </li>
+
+            
        
             <li><a href="{{route('dashCareer')}}" class={{careerActive}}>Career</a></li> 
            

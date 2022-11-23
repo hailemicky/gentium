@@ -1,7 +1,11 @@
 @layout('nav-bar')
 @set('title', 'Career')
 @set("otherActive", "active")
+@section('style')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
 
+@end
 
 @section('main')
 <main id="main">
@@ -31,13 +35,16 @@
       <div class="container">
 
         
-          <table id="dtBasicExample" class="table table-striped">
-            <tr>
+          <table id="careerTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>  
                 <th>ID</th>
                 <th>Description</th>
                 <th>post Date</th>
                 <th>Deadline</th>
-            </tr>
+              </tr>  
+            </thead>
+            <tbody>
             <tr>
               <td>1</td>
               <td>Pump Operator</td>
@@ -62,12 +69,27 @@
               <td>01/10/2022</td>
               <td>30/10/2022</td>
             </tr>  
+          </tbody>
           </table>
         </div>  
     </section>
 
 </main>
 
+    @end
+
+@section('script')
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#careerTable').DataTable();
+});
+
+</script>
     @end
 
  

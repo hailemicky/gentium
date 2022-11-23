@@ -2,6 +2,12 @@
 @set('title', 'Dashboard - Career')
 @set("careerActive", "active")
 
+@section('style')
+  {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">  --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+
+@end
+
  @section('main')
 
 
@@ -21,23 +27,24 @@
 
     <section>
 
-      <div class="container" style="align-items: center">
+      <div class="container" >
           <h1 align="center">Open Rolls List</h1>
 
       </div>
 
-      <div class="container">
+      <section>
       
-      <div  style="postion :right">
-        <a href="{{route('newCareer')}}" class="btn btn-secondary">Add New Opening</a>
+      <div  class="container" >
+       <a href="{{route('newCareer')}}" class="btn btn-secondary" style="float: right;">Add New Opening</a>
       </div>
 
-      </div>
+    </section>
 
       <div class="container">
 
            
-          <table id="dtBasicExample" class="table table-striped">
+        <table id="careerTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Job Title</th>
@@ -45,7 +52,8 @@
                 <th>Deadline</th>
                 <th><i class="fa-solid fa-list"></i> <i class="fa-solid fa-pen-to-square"></i>   <i class="fa-solid fa-trash"></i></th>
             </tr>
-           
+          </thead>
+           <tbody>
            @each(career in careers)
             <tr>
               <td>{{career.id}}</td>
@@ -58,7 +66,10 @@
                 <a href="{{route('index')}}">  <i class="fa-solid fa-trash"></i> </a>
             </td>
             </tr>
-            @end
+
+             @end
+
+            </tbody>
             
          
           </table>
@@ -70,3 +81,19 @@
 
 
  @end
+
+
+ 
+@section('script')
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#careerTable').DataTable();
+});
+
+</script>
+    @end
