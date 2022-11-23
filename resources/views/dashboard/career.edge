@@ -1,0 +1,72 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Dashboard - Career')
+@set("careerActive", "active")
+
+ @section('main')
+
+
+ <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../../assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Career</h2>
+        <ol>
+          <li><a href="{{route('index')}}">Home</a></li>
+          <li>career</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <section>
+
+      <div class="container" style="align-items: center">
+          <h1 align="center">Open Rolls List</h1>
+
+      </div>
+
+      <div class="container">
+      
+      <div  style="postion :right">
+        <a href="{{route('newCareer')}}" class="btn btn-secondary">Add New Opening</a>
+      </div>
+
+      </div>
+
+      <div class="container">
+
+           
+          <table id="dtBasicExample" class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Job Title</th>
+                <th>post Date</th>
+                <th>Deadline</th>
+                <th><i class="fa-solid fa-list"></i> <i class="fa-solid fa-pen-to-square"></i>   <i class="fa-solid fa-trash"></i></th>
+            </tr>
+           
+           @each(career in careers)
+            <tr>
+              <td>{{career.id}}</td>
+              <td><a href="{{route('viewCareer')}}">{{career.job_title}}</a></td>
+              <td>01/10/2022</td>
+              <td>30/10/2022</td>
+              <td>
+                <a href="{{route('view_applicants')}}"><i class="fa-solid fa-list"></i></a>
+                <a href="{{route('index')}}"><i class="fa-solid fa-pen-to-square"></i></a> 
+                <a href="{{route('index')}}">  <i class="fa-solid fa-trash"></i> </a>
+            </td>
+            </tr>
+            @end
+            
+         
+          </table>
+        </div>  
+    </section>
+
+</main>
+
+
+
+ @end

@@ -1,0 +1,100 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Career')
+@set("otherActive", "active")
+@section('css')
+
+<Style>
+.textarea {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1px 6px;
+}
+.width-machine {
+  /*   Sort of a magic number to add extra space for number spinner */
+  padding: 0 1rem;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "Placeholder still possible";
+  color: gray;
+}
+
+</Style>
+
+@end
+
+@section('main')
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../../assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Career</h2>
+        <ol>
+          <li><a href="{{route('index')}}">Home</a></li>
+          <li>career</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <section>
+
+      <div class="container" style="align-items: center">
+          <h1 align="center">{{career.job_title}}</h1>
+
+          <div class="grow-wrap">
+
+            {{--  <span class="textarea" role="textbox" contenteditable>{{career.description}}</span></p>  --}}
+            <pre style=" white-space: pre-wrap; color:#000000">{{career.description}}</pre>
+          </div>
+
+            <div>
+                <a class="btn btn-primary" href="{{route('applyCareer')}}">Apply</a>
+
+            </div>
+        
+      </div>
+    
+      
+        
+         
+
+    </section>
+
+</main>
+
+    @end
+
+
+   @section('script')
+
+   <script>
+    let widthMachine = document.querySelector(".width-machine");
+
+// Dealing with Textarea Height
+function calcHeight(value) {
+  let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+  // min-height + lines x line-height + padding + border
+  let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
+  return newHeight;
+}
+
+let textarea = document.querySelector(".resize-ta");
+textarea.addEventListener("keyup", () => {
+  textarea.style.height = calcHeight(textarea.value) + "px";
+});
+
+
+   </script>
+@end

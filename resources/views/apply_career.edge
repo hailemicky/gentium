@@ -1,0 +1,111 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Add New Career')
+@set("aboutActive", "active")
+
+ @section('main')
+
+
+ <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../../assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>New Roll</h2>
+        <ol>
+          <li><a href="{{route('index')}}">Home</a></li>
+          <li>Add New Opening</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid" alt="Sample image">
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form action="{{route('newApplication')}}" method="POST">
+             
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                  <input type="text"class="form-control form-control-lg"
+                    placeholder="First Name" name="first_name" required />
+                 
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text"class="form-control form-control-lg"
+                      placeholder="Last Name" name="last_name" required/>
+                   
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text"class="form-control form-control-lg"
+                      placeholder="Current Position Title" name="current_position" required />
+                   
+                  </div>
+
+                  
+
+              <div class="form-outline mb-4">
+                <select name="qualification" class="form-control form-control-lg" required>
+                  <option value="">---Select Qualification---</option>
+                  <option value="12 complete"> 12 Complete</option>
+                  <option value="diploma">Diploma</option>
+                  <option value="Bachlors Degree"> Bachlors Degree</option>
+                  <option value="Masters Degree">Masters Degree</option>
+                  <option value="Phd">Post Masters Degree</option>
+                </select>
+              </div>
+    
+              <div class="form-outline mb-4">
+                <select name="experience" class="form-control form-control-lg" required>
+                  <option value="">---Select Experiance---</option>
+                  <option value="under 1 year (fresh graduate)"> under 1 year (fresh graduate)</option>
+                  <option value="1-4 Years">1-4 Years</option>
+                  <option value="5-9 years">5-9 years</option>
+                  <option value="10+ years">10+ years</option>
+                  
+                </select>
+              </div>
+
+              <div class="form-outline mb-4">
+                <select name="construction_experience" class="form-control form-control-lg" required>
+                  <option value="">-Do you Have a Construction Industry Experiance-</option>
+                  <option value="True"> Yes</option>
+                  <option value="False">No</option>
+                </select>
+              </div>
+
+            
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input type="file"  class="form-control form-control-lg"
+                  placeholder="Upload Resume" name="cv_url" required />
+                
+              </div>
+    
+            
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit Application</button>
+                {{--  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                    class="link-danger">Register</a></p>  --}}
+              </div>
+    
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+
+
+ </main>
+
+ @end

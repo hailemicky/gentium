@@ -1,0 +1,68 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Dashboard - Career')
+@set("aboutActive", "active")
+
+ @section('main')
+
+
+ <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../../assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Career</h2>
+        <ol>
+          <li><a href="{{route('index')}}">Home</a></li>
+          <li>career</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <section>
+
+      <div class="container" style="align-items: center">
+          <h1 align="center">Applicants List</h1>
+
+      </div>
+
+     
+      <div class="container">
+
+           
+          <table id="dtBasicExample" class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Current Position</th>
+                <th>Experience</th>
+                <th>qualification</th> 
+                <th>construction Experience</th>
+                <th>Resume</th>
+               
+            </tr>
+           
+           @each(applicant in applicants)
+            <tr>
+              <td>{{applicant.id}}</td>
+              <td>{{applicant.first_name}}</td>
+              <td>{{applicant.last_name}}</td>
+              <td>{{applicant.current_position}}</td>
+              <td>{{applicant.experience}}</td>
+              <td>{{applicant.qualification}}</td>
+              <td>{{applicant.construction_experience}}</td>
+              <td>{{applicant.cv_url}}</td>
+            </tr>
+            @end
+            
+         
+          </table>
+        </div>  
+    </section>
+
+</main>
+
+
+
+ @end

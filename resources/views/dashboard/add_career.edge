@@ -1,0 +1,70 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Add New Career')
+@set("aboutActive", "active")
+
+ @section('main')
+
+
+ <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../../assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>New Roll</h2>
+        <ol>
+          <li><a href="{{route('index')}}">Home</a></li>
+          <li>Add New Opening</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid" alt="Sample image">
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form action="{{route('addCareer')}}" method="POST">
+             
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                  <input type="text"class="form-control form-control-lg"
+                    placeholder="Job Title" name="job_title" />
+                 
+                </div>
+
+              <div class="form-outline mb-4">
+                <textarea  class="from-control form-control-lg" name="description" rows="6" cols="42"></textarea>
+               
+              </div>
+    
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input type="file"  class="form-control form-control-lg"
+                  placeholder="file" name="file_url" />
+                
+              </div>
+    
+            
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;">upload</button>
+                {{--  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                    class="link-danger">Register</a></p>  --}}
+              </div>
+    
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+
+
+ </main>
+
+ @end
