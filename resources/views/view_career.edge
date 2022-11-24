@@ -1,6 +1,6 @@
-@layout('dashboard/dash-nav-bar')
+@layout('nav-bar')
 @set('title', 'Career')
-@set("otherActive", "active")
+@set("careerActive", "active")
 @section('css')
 
 <Style>
@@ -59,8 +59,14 @@
             <pre style=" white-space: pre-wrap; color:#000000">{{career.description}}</pre>
           </div>
 
+
+          <div class="grow-wrap">
+
+            <pre style=" white-space: pre-wrap; color:#000000"><b style="color:red">Please Apply Before {{career.deadline}}</b></pre>
+          </div>
+
             <div>
-                <a class="btn btn-primary" href="{{route('applyCareer')}}">Apply</a>
+                <a class="btn btn-primary" href="{{route('applyCareer',[career.id])}}">Apply</a>
 
             </div>
         

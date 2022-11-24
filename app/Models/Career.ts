@@ -12,7 +12,7 @@ export default class Career extends BaseModel {
   public description:string
 
   @column()
-  public file_url:string
+  public deadline:string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

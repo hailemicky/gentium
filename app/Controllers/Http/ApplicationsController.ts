@@ -5,13 +5,21 @@
 
 export default class ApplicationsController {
 
+    public async showApply({params,view}:HttpContextContract){
+        const careerId= params.id;
+        console.log(careerId)
 
+        return view.render('apply_career',{careerId});
 
-    public async apply({request,response,view}:HttpContextContract){
+    }
+
+    public async apply({request,response,params,view}:HttpContextContract){
     
-        const data= request.all();
+      const careerId=params.id;
+       console.log(careerId)
 
         const cv = request.file('cv_url')
+        const data= request.all()
 
         console.log(cv)
 
@@ -21,8 +29,11 @@ export default class ApplicationsController {
                     await cv.move(Upload.publicPath('cv/uploads')).catch(console.error);
 
                     try{
-    
-                        await Application.create(data);
+                        
+                        const applicant =await Application.create(data);
+
+                            applicant.job_id=careerId;
+                          await  applicant.save();
                      
                          }
                      
@@ -30,7 +41,7 @@ export default class ApplicationsController {
                      
                              console.log(error)
                      
-                             response.redirect().back()
+                            return response.redirect().back()
                      
                      
                      
@@ -49,10 +60,10 @@ export default class ApplicationsController {
      }
 
 
-     public async viewApplicants( {view}:HttpContextContract){
+     public async viewApplicants( {view, params}:HttpContextContract){
 
-        const applicants=await Application.all()
-    
+            const job_id= params.job_id;
+        const applicants=await Application.query().where('job_id',job_id)    
        return view.render('dashboard/view_applicants',{applicants});
     }
 }

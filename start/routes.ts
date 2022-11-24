@@ -46,17 +46,13 @@ Route.get("/tender", async ({ view }) => {
   return view.render("tender");
 }).as("tender");
 
-Route.get("/career", async ({ view }) => {
-  return view.render("career");
-}).as("career");
+Route.get("/career", 'CareersController.showCareer').as("career");
 
-Route.get("career/view", "CareersController.viewCareer").as("viewCareer");
+Route.get("career/view/:id", "CareersController.viewCareer").as("viewCareer");
 
-Route.get("/career/apply", async ({ view }) => {
-  return view.render("apply_career");
-}).as("applyCareer");
+Route.get("/career/apply/:id", 'ApplicationsController.showApply').as("applyCareer");
 
-Route.post("career/apply", "ApplicationsController.apply").as('newApplication')
+Route.post("career/apply/:id", "ApplicationsController.apply").as('newApplication')
 
 Route.get("/resource", async ({ view }) => {
   return view.render("resource");
@@ -117,10 +113,28 @@ Route.post("career/new", "CareersController.addCareer")
   .as("addCareer")
   .middleware("auth");
 
-  Route.get("new/applicants", "ApplicationsController.viewApplicants")
+Route.get("new/applicants/:job_id", "ApplicationsController.viewApplicants")
     .prefix('dashboard')
     .as('view_applicants')
     .middleware('auth')
+
+Route.get("career/:id","CareersController.showEditCareer")
+    .prefix('dashboard')
+    .as("showEditCareer")
+    .middleware("auth")
+Route.post("career/:id","CareersController.editCareer")
+      .prefix('dashboard')
+      .as("editCareer")
+      .middleware("auth")
+
+Route.get("career/delete/:id","CareersController.deleteCareer")
+      .prefix('dashboard')
+      .as("deleteCareer")
+      .middleware("auth")      
+
+
+
+    //Dashboard contact route
 
     Route.get("contact","ContactsController.showContact").prefix('dashboard').as('newContact').middleware('auth')
 

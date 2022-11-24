@@ -57,13 +57,13 @@
            @each(career in careers)
             <tr>
               <td>{{career.id}}</td>
-              <td><a href="{{route('viewCareer')}}">{{career.job_title}}</a></td>
-              <td>01/10/2022</td>
-              <td>30/10/2022</td>
+              <td><a href="{{route('viewCareer',[career.id])}}">{{career.job_title}}</a></td>
+              <td>{{career.createdAt}}</td>
+              <td>{{career.deadline}}</td>
               <td>
-                <a href="{{route('view_applicants')}}"><i class="fa-solid fa-list"></i></a>
-                <a href="{{route('index')}}"><i class="fa-solid fa-pen-to-square"></i></a> 
-                <a href="{{route('index')}}">  <i class="fa-solid fa-trash"></i> </a>
+                <a href="{{route('view_applicants',[career.id])}}"><i class="fa-solid fa-list"></i></a>
+                <a href="{{route('showEditCareer',[career.id])}}"><i class="fa-solid fa-pen-to-square"></i></a> 
+                <a href="{{route('deleteCareer',[career.id])}}">  <i class="fa-solid fa-trash"></i> </a>
             </td>
             </tr>
 

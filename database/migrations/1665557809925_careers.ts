@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('job_title')
       table.string('description',200000)
-      table.string('file_url')
+      table.dateTime('deadline')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
