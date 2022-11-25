@@ -12,6 +12,8 @@ export default class Application extends BaseModel {
   @column()
   public last_name: string;
   @column()
+  public email: string;
+  @column()
   public current_position: string;
   @column()
   public qualification: string;

@@ -19,6 +19,9 @@ export default class ApplicationsController {
        console.log(careerId)
 
         const cv = request.file('cv_url')
+
+          
+        
         const data= request.all()
 
         console.log(cv)
@@ -33,7 +36,13 @@ export default class ApplicationsController {
                         const applicant =await Application.create(data);
 
                             applicant.job_id=careerId;
-                          await  applicant.save();
+                            applicant.cv_url=cv.clientName;
+                            
+                            
+                            
+                            await  applicant.save();
+
+                            return response.redirect().toPath('/career');
                      
                          }
                      
@@ -48,7 +57,7 @@ export default class ApplicationsController {
                         }
 
 
-                        return view.render('success_apply')
+                       
                     
                 }
                     

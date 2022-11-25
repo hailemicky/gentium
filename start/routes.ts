@@ -113,7 +113,7 @@ Route.post("career/new", "CareersController.addCareer")
   .as("addCareer")
   .middleware("auth");
 
-Route.get("new/applicants/:job_id", "ApplicationsController.viewApplicants")
+Route.get("/applicants/:job_id", "ApplicationsController.viewApplicants")
     .prefix('dashboard')
     .as('view_applicants')
     .middleware('auth')
@@ -140,9 +140,12 @@ Route.get("career/delete/:id","CareersController.deleteCareer")
 
 //Dashboard Media Route
 
-Route.get("media", "contentsController.showMediaManager")
+Route.get("media", "ContentsController.showMediaManager")
   .prefix("dashboard")
   .as("newMedia")
   .middleware("auth");
 
+
+
+  Route.get("/content",'ContentsController.showContentManager')
 

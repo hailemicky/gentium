@@ -9,6 +9,7 @@ export default class extends BaseSchema {
       table.string('job_id')
       table.string('first_name')
       table.string('last_name')
+      table.string('email')
       table.string('current_position')
       table.string('qualification')
       table.string('experience')
