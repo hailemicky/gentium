@@ -5,6 +5,22 @@ export default class Team extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column()
+  public name:string
+
+  @column()
+  public title:string
+
+  @column()
+  public description:string
+
+  @column()
+  public priority:number
+
+  @column()
+
+  public pic_url:string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

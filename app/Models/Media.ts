@@ -5,6 +5,18 @@ export default class Media extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column()
+  public name:string
+
+  @column ()
+  public description :string
+  @column()
+
+  public priority:number
+
+  @column()
+  public file_url:string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

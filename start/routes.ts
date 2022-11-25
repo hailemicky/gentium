@@ -79,23 +79,12 @@ Route.get("register", "auth/AuthController.registerShow").as(
 Route.get("logout", "auth/AuthController.logout").as("auth.logout");
 
 // Dashboard Route
-Route.get("/dashboard", async ({ view }) => {
-  return view.render("dashboard/dashboard");
-}).as("dashboard");
-
-
-Route.get("/test", async ({ view }) => {
-  return view.render("test_table");
-}).as("test_table");
 
 
 
 
-//dashboard content manager
-Route.get("content_manager", "contentsController.showContentManager")
-  .prefix("dashboard")
-  .as("newContent")
-  .middleware("auth");
+
+
 
 
 
@@ -134,18 +123,53 @@ Route.get("career/delete/:id","CareersController.deleteCareer")
 
 
 
-    //Dashboard contact route
+   
+ 
 
-    Route.get("contact","ContactsController.showContact").prefix('dashboard').as('newContact').middleware('auth')
+//Dashboard  Route
 
-//Dashboard Media Route
-
-Route.get("media", "ContentsController.showMediaManager")
-  .prefix("dashboard")
-  .as("newMedia")
-  .middleware("auth");
+Route.get("/dashboard", async ({ view }) => {
+  return view.render("dashboard/dashboard");
+}).as("dashboard").middleware('auth');
 
 
 
-  Route.get("/content",'ContentsController.showContentManager')
+  Route.get("/introduction",'ContentsController.showIntroduction').prefix('dashboard').as('showIntroduction').middleware('auth')
+  Route.post("/introduction",'ContentsController.updateIntroduction').prefix('dashboard').as('updateIntroduction').middleware('auth')
 
+
+  Route.get("/about",'ContentsController.showAbout').prefix('dashboard').as('showAbout').middleware('auth')
+  Route.post("/about",'ContentsController.updateAbout').prefix('dashboard').as('updateAbout').middleware('auth')
+
+
+
+  Route.get("/service",'ContentsController.showService').prefix('dashboard').as('showService').middleware('auth')
+  Route.post("/service",'ContentsController.addService').prefix('dashboard').as('addService').middleware('auth')
+  Route.get("/service/:id",'ContentsController.deleteService').prefix('dashboard').as('deleteService').middleware('auth')
+
+
+
+  Route.get("/team",'ContentsController.showTeam').prefix('dashboard').as('showTeam').middleware('auth')
+  Route.post("/team",'ContentsController.addTeam').prefix('dashboard').as('addTeam').middleware('auth')
+  Route.get("/team/:id",'ContentsController.deleteTeam').prefix('dashboard').as('deleteTeam').middleware('auth')
+
+
+  Route.get("/project",'ContentsController.showProject').prefix('dashboard').as('showProject').middleware('auth')
+  Route.post("/project",'ContentsController.addProject').prefix('dashboard').as('addProject').middleware('auth')
+  Route.get("/project/:id",'ContentsController.deleteProject').prefix('dashboard').as('deleteProject').middleware('auth')
+
+  Route.get("/testimonial",'ContentsController.showTestimonial').prefix('dashboard').as('showTestimonial').middleware('auth')
+  Route.post("/testimonial",'ContentsController.addTestimonial').prefix('dashboard').as('addTestimonial').middleware('auth')
+  Route.get("/testimonial/:id",'ContentsController.deleteTestimonial').prefix('dashboard').as('deleteTestimonial').middleware('auth')
+
+
+  Route.get("/partner",'ContentsController.showPartner').prefix('dashboard').as('showPartner').middleware('auth')
+  Route.post("/partner",'ContentsController.addPartner').prefix('dashboard').as('addPartner').middleware('auth')
+  Route.get("/partner/:id",'ContentsController.deletePartner').prefix('dashboard').as('deletePartner').middleware('auth')
+
+  Route.get("/contact",'ContentsController.showContact').prefix('dashboard').as('showContact').middleware('auth')
+  Route.post("/contact",'ContentsController.updateContact').prefix('dashboard').as('updateContact').middleware('auth')
+
+  Route.get("/media",'MediaController.showMedia').prefix('dashboard').as('showMedia').middleware('auth')
+  Route.post("/media",'MediaController.addMedia').prefix('dashboard').as('addMedia').middleware('auth')
+  Route.get("/media/:id",'MediaController.deleteMedia').prefix('dashboard').as('deleteMedia').middleware('auth')

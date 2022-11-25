@@ -59,10 +59,10 @@
             <li><a href="{{route('career')}}" class={{careerActive}}>Careere</a></li>
             <li><a href="{{route('resource')}}" class={{downloadActive}}>Downloads </a></li>
           
-            <li><a href="{{route('contact')}}" class={{contactActive}}">Contact</a></li>
+            <li><a href="{{route('contact')}}" class={{contactActive}}>Contact</a></li>
 
             @if(auth.user)
-            <li><a href="{{route('auth.logout')}}"><i class="fa fa-solid fa-right-from-bracket"></i></a></li>
+            <li><a href="{{route('dashboard')}}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
             @else
             <li><a href="{{route('auth.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
             @end

@@ -6,7 +6,11 @@ export default class extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-
+      table.string('name')
+      table.string('title')
+      table.string('description',200000)
+      table.integer('priority')
+      table.string('pic_url',255)
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
