@@ -22,25 +22,15 @@ import Route from "@ioc:Adonis/Core/Route";
 
 // Front Page Route
 
-Route.get("/", async ({ view }) => {
-  return view.render("index");
-}).as("index");
+Route.get("/",'FrontpagesController.showIndex').as("index");
+Route.get('/about','FrontpagesController.showAbout').as('about');
 
-Route.get("/about", async ({ view }) => {
-  return view.render("about");
-}).as("about");
 
-Route.get("/service", async ({ view }) => {
-  return view.render("services");
-}).as("service");
 
-Route.get("/blog", async ({ view }) => {
-  return view.render("blog");
-}).as("blog");
+Route.get("/service", 'FrontpagesController.showService').as("service");
 
-Route.get("/projects", async ({ view }) => {
-  return view.render("projects");
-}).as("projects");
+
+Route.get("/projects",'FrontpagesController.showProject').as("projects");
 
 Route.get("/tender", async ({ view }) => {
   return view.render("tender");
@@ -54,19 +44,11 @@ Route.get("/career/apply/:id", 'ApplicationsController.showApply').as("applyCare
 
 Route.post("career/apply/:id", "ApplicationsController.apply").as('newApplication')
 
-Route.get("/resource", async ({ view }) => {
-  return view.render("resource");
-}).as("resource");
+Route.get("/resource",'FrontpagesController.showMedia').as("resource");
 
-Route.get("/contact", async ({ view }) => {
-  return view.render("contact");
-}).as("contact");
+Route.get("/contact",'FrontpagesController.showContact').as("contact");
 
 
-Route.get('table', async({view})=>{
-
-  return view.render('test_table')
-})
 
 Route.post("login", "auth/AuthController.login").as("auth.login");
 Route.get("login", "auth/AuthController.loginShow").as("auth.login.show");

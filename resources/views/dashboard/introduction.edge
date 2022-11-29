@@ -1,0 +1,68 @@
+@layout('dashboard/dash-nav-bar')
+@set('title', 'Add New About')
+@set("contentActive", "active")
+
+ @section('main')
+
+
+ <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+  
+          <h2>Introduction Content</h2>
+          <ol>
+            <li><a href="{{route('index')}}">Dashboard</a></li>
+            <li> Content Manager / Introduction</li>
+          </ol>
+  
+        </div>
+      </div><!-- End Breadcrumbs -->
+
+
+
+ </main>
+
+ <section>
+    <div class="container">
+        <form  action="{{route('updateIntroduction')}}" method="POST">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Introduction Title</label>
+            <input type="text" class="form-control" name="introTitle" placeholder="" value="{{introduction.introTitle}}">
+          </div>
+          <br>
+
+        
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Introduction Description</label>
+            <textarea class="form-control" name="description" rows="5">{{introduction.description}}</textarea>
+          </div>
+       
+
+          <br>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Our Story Description</label>
+            <textarea class="form-control" name="aboutDescription" rows="5">{{introduction.aboutDescription}}</textarea>
+          </div>
+
+          <br>
+          <div class="formgroup">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+
+
+
+        </form>
+      </div>
+
+ </section>   
+
+
+
+
+
+
+ 
+ @end

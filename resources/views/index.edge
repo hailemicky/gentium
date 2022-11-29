@@ -9,11 +9,9 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-          <h2 data-aos="fade-down">Welcome to <span>GENTIUM Concret Industries</span></h2>
+          <h2 data-aos="fade-down">{{introduction.introTitle}}</h2>
           <p data-aos="fade-up">
-            GENTIUM concreate industries plc is one of the leading concreate manufacture in Ethiopia established 
-            by a joint venture with a foreign subsidiary. Our vision is to be the sought after and trusted concrete 
-            product producer of choice and to contribute to the growth of the construction sector in the country. 
+            {{introduction.description}}
            </p>
             <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
         </div>
@@ -54,10 +52,7 @@
             <div class="content">
               <h3>Our Story.</h3>
               <p>
-                Gentium industries was formed in 2019 by a group of like-minded people with great
-                  knowledge in construction material industry professionals who are experts in managerial, 
-                  technical and operational aspect of the concrete industry. Above all we put our
-                  prime focus on meeting and exceeding the expectation of our customers.
+                {{introduction.aboutDescription}}
               </p>  </div>
           </div>
 
@@ -100,85 +95,6 @@
       </div>
     </section><!-- End Get Started Section -->
 
-    {{--  <!-- ======= Constructions Section ======= -->
-    <section id="constructions" class="constructions">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Constructions</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
-        </div>
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-1.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Eligendi omnis sunt veritatis.</h4>
-                    <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem placeat deleniti adipisci. Cum delectus doloribus non veritatis. Officia temporibus illo magnam. Dolor eos et.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-2.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Possimus ut sed velit assumenda</h4>
-                    <p>Sunt deserunt maiores voluptatem autem est rerum perferendis rerum blanditiis. Est laboriosam qui iste numquam laboriosam voluptatem architecto. Est laudantium sunt at quas aut hic. Eum dignissimos.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-3.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Error beatae dolor inventore aut</h4>
-                    <p>Dicta porro nobis. Velit cum in. Nesciunt dignissimos enim molestiae facilis numquam quae quaerat ipsam omnis. Neque debitis ipsum at architecto officia laboriosam odit. Ut sunt temporibus nulla culpa.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-4.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Expedita voluptas ut ut nesciunt</h4>
-                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores libero nobis.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Constructions Section -->  --}}
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
@@ -190,51 +106,25 @@
         </div>
 
         <div class="row gy-4">
-
+          @each(service in services)
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item  position-relative">
               <div class="icon">
                 <i class="fa-solid fa-mountain-city"></i>
               </div>
-              <h3>Concrete Production And Supply</h3>
-              <p>Ready-mix concrete that is specifically manufactured for customers' construction projects, and supplied to the customer on
-                site as a single product. It is a mixture of cements, water and
-                aggregates: sand, gravel, or crushed stone.</p>
+              <h3>{{service.title}}</h3>
+              <p>{{service.description}}</p>
               {{--  <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>  --}}
             </div>
           </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-              </div>
-              <h3>AdMixture Supply</h3>
-              <p>Concrete admixtures are natural or manufactured chemicals or
-                additives added during concrete mixing to enhance specific
-                properties of the fresh or hardened concrete, such as workability, durability, or early and final strength.</p>
-              {{--  <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>  --}}
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-compass-drafting"></i>
-              </div>
-              <h3>Research Program</h3>
-              <p>We conduct various type of research in optimization and utilization of ready mix concrete. 
-                To obtain the best possible methods and ingredients for our customers all over our country.</p>
-              {{--  <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>  --}}
-            </div>
-          </div><!-- End Service Item -->
+            @end
 
         </div>
 
       </div>
     </section><!-- End Services Section -->
 
-   <!-- ======= Alt Services Section ======= -->
+   {{--  <!-- ======= Alt Services Section ======= -->
    <section id="alt-services" class="alt-services">
     <div class="container" data-aos="fade-up">
 
@@ -291,7 +181,7 @@
       </div>
 
     </div>
-  </section><!-- End Alt Services Section -->  
+  </section><!-- End Alt Services Section -->    --}}
 
   
 
@@ -312,27 +202,27 @@
             <li data-filter=".filter-construction">On Progress</li>
           </ul><!-- End Projects Filters -->
 
-          {{--  <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/pictures/gift.jpg" class="img-fluid" alt="">
+                <img src="/assets/img/projects/design-1.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>On Progress</h4>
+                  <h4>In Progress</h4>
                   <p>Gift Real Estate</p>
-                  <a href="assets/pictures/gift.jpg" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/projects/design-1.jpg" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Projects Item -->  --}}
+            </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/pictures/oib.jpg" class="img-fluid" alt="">
+                <img src="/assets/img/projects/design-2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Completed</h4>
                   <p>Oromia International Bank</p>
-                  <a href="assets/pictures/oib.jpg" title="Construction 1" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/projects/design-2.jpg" title="Construction 1" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>

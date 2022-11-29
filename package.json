@@ -26,6 +26,7 @@
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.1.0",
     "@adonisjs/view": "^6.2.0",
+    "axios": "^1.2.0",
     "luxon": "^3.0.4",
     "mdbootstrap": "^4.20.0",
     "pg": "^8.8.0",

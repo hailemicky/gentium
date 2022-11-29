@@ -31,30 +31,25 @@
 
       
         <table id="dtBasicExample" class="table table-striped">
+         <thead>
           <tr>
-              <th>ID</th>
-              <th>Description</th>
-              <th>post Date</th>
-              <th>Download</th>
+              
+              <th>Title</th>
+               <th>Description</th>
+               <th>Download</th>
           </tr>
+         </thead>
+
+         <tbody>
+          @each(media in medias)
           <tr>
-            <td>1</td>
-            <td>Company Profile</td>
-            <td>01/10/2022</td>
-            <td><i class="fa fa-download" aria-hidden="true"></i></td>
+            
+            <td>{{media.name}}</td>
+            <td>{{media.description}}</td>
+            <td><a href="/Media/uploads/{{media.file_url}}"><i class="fa fa-download" aria-hidden="true"></i></a></td>
           </tr>  
-          <tr>
-            <td>2</td>
-            <td>Sales Browser</td>
-            <td>01/10/2022</td>
-            <td><i class="fa fa-download" aria-hidden="true"></i></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Client  Testimonials</td>
-            <td>01/10/2022</td>
-            <td><i class="fa fa-download" aria-hidden="true"></i></td>
-          </tr>
+          @end
+         </tbody>
         
         </table>
       </div>  

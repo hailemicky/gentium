@@ -1320,6 +1320,8 @@ section {
 }
 
 .team .member .member-img img {
+  width:240px ;
+  height:280px;
   position: relative;
   z-index: 1;
 }
