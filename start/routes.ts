@@ -32,9 +32,7 @@ Route.get("/service", 'FrontpagesController.showService').as("service");
 
 Route.get("/projects",'FrontpagesController.showProject').as("projects");
 
-Route.get("/tender", async ({ view }) => {
-  return view.render("tender");
-}).as("tender");
+
 
 Route.get("/career", 'CareersController.showCareer').as("career");
 
@@ -60,7 +58,11 @@ Route.get("register", "auth/AuthController.registerShow").as(
 
 Route.get("logout", "auth/AuthController.logout").as("auth.logout");
 
-// Dashboard Route
+// mail route
+
+Route.post('/rfq','MailController.sendRFQ').as('sendRFQ')
+
+Route.post('/contact','MailController.sendContact').as('sendContact')
 
 
 

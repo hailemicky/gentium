@@ -7,6 +7,7 @@ import Testimonial from 'App/Models/Testimonial';
 import Partner from 'App/Models/Partner';
 
 
+
 export default class ContentsController {
 
      
@@ -388,6 +389,9 @@ export default class ContentsController {
         try{
 
             const partner= await Partner.findOrFail(params.id)
+
+
+         
 
             await partner.delete()
 
