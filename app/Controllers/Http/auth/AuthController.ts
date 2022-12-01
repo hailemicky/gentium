@@ -24,9 +24,18 @@ export default class AuthController {
 
 
          try{
+
+          if(request.input('verification')=='GENTIUM_PASS_321'){
          const data= await request.validate({schema:userValidater})
          const  user =await User.create(data)
          await auth.login(user)
+
+         return response.redirect().toRoute('dashboard')  
+          }
+          else{
+
+            return response.redirect().back();
+          }
 
          }
          catch(error)
@@ -38,7 +47,7 @@ export default class AuthController {
                 return response.redirect().back()
          }
 
-         return response.redirect().toRoute('dashboard')           
+                
        
 
     }

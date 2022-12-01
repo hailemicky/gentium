@@ -21,9 +21,9 @@
 
   <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
-    <div class="carousel-item " style="background-image: url(assets/pictures/1J2A1490.JPG)"></div>
-    <div class="carousel-item active" style="background-image: url(assets/pictures/1J2A1477.jpg)"></div>
-    <div class="carousel-item" style="background-image: url(assets/pictures/1J2A1518.jpg)"></div>
+    <div class="carousel-item " style="background-image: url(/assets/pictures/1J2A1490.JPG)"></div>
+    <div class="carousel-item active" style="background-image: url(/assets/pictures/1J2A1477.jpg)"></div>
+    <div class="carousel-item" style="background-image: url(/assets/pictures/1J2A1518.jpg)"></div>
     
 
     <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
@@ -57,7 +57,7 @@
           </div>
 
           <div class="col-lg-5" data-aos="fade">
-            <form action="{{route('sendRFQ')}}" method="post" class="php-email-form">
+            <form action="{{route('sendRFQ')}}" method="post" class="contact-form">
               <h3>Get a quote</h3>
               <p></p>
               <div class="row gy-3">
@@ -124,64 +124,6 @@
       </div>
     </section><!-- End Services Section -->
 
-   {{--  <!-- ======= Alt Services Section ======= -->
-   <section id="alt-services" class="alt-services">
-    <div class="container" data-aos="fade-up">
-
-      <div class="row justify-content-around gy-4">
-        <div class="col-lg-6 img-bg" style="background-image: url(assets/pictures/1J2A1497.jpg);" data-aos="zoom-in" data-aos-delay="100"></div>
-
-        <div class="col-lg-5 d-flex flex-column justify-content-center">
-          <h3>Operational Capability</h3>
-          <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-            <i class="bi bi-easel flex-shrink-0"></i>
-            <div>
-              <h4><a href="" class="stretched-link">Batching Plant</a></h4>
-              <p> Two baching plant located in our
-                bole bulbula site. It is capable of
-                mixing 180 m <sup>3</sup> per hour
-              </p>
-           </div>
-          </div><!-- End Icon Box -->
-
-          <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-            <i class="bi bi-patch-check flex-shrink-0"></i>
-            <div>
-              <h4><a href="" class="stretched-link">CONCRETE PUMP</a></h4>
-              <p>Five SANY made concrete pumps
-                which can reach up to 56m.
-                </p>
-            </div>
-          </div><!-- End Icon Box -->
-
-          <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-            <i class="bi bi-brightness-high flex-shrink-0"></i>
-            <div>
-              <h4><a href="" class="stretched-link">CONCRETE MIXER</a></h4>
-              <p>
-                  Top of the line 40 concrete mixer
-                  trucks able to deliver 480 m <sup>3</sup> at a
-                  time
-              </p>
-            </div>
-          </div><!-- End Icon Box -->
-
-          <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-            <i class="bi bi-brightness-high flex-shrink-0"></i>
-            <div>
-              <h4><a href="" class="stretched-link">LABORATORY EQUIPMENT
-              </a></h4>
-              <p>Various type of testing equipment
-              to ensure the quality of all our
-              products.</p>
-            </div>
-          </div><!-- End Icon Box -->
-
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Alt Services Section -->    --}}
 
   
 
@@ -198,39 +140,37 @@
 
           <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-remodeling">Completed</li>
-            <li data-filter=".filter-construction">On Progress</li>
+            <li data-filter=".filter-complete">Completed</li>
+            <li data-filter=".filter-inProgress">In-Progress</li>
           </ul><!-- End Projects Filters -->
 
+        
           <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            @each(project in projects)
+              @if(project.status)
+            <div class="col-lg-4 col-md-6 portfolio-item filter-complete">
+              @else
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <div class="col-lg-4 col-md-6 portfolio-item filter-inProgress">
+              @end
               <div class="portfolio-content h-100">
-                <img src="/assets/img/projects/design-1.jpg" class="img-fluid" alt="">
+                <img src="/Project/uploads/{{project.pic_url}}" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>In Progress</h4>
-                  <p>Gift Real Estate</p>
-                  <a href="assets/img/projects/design-1.jpg" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>{{project.client_name}}</h4>
+                  <p>{{project.name}} <br/>{{project.description}}</p>
+                 
+                  <a href="/Project/uploads/{{project.pic_url}}" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
                 </div>
               </div>
             </div><!-- End Projects Item -->
+            @end
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-              <div class="portfolio-content h-100">
-                <img src="/assets/img/projects/design-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Completed</h4>
-                  <p>Oromia International Bank</p>
-                  <a href="assets/img/projects/design-2.jpg" title="Construction 1" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
+           
 
-
-
+           
           </div><!-- End Projects Container -->
+
 
         </div>
 
@@ -249,72 +189,19 @@
       </div>
 
       <div class="row gy-5">
-
+        @each(partner in partners)
         <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
           <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
+            <img src="/Partner/uploads/{{partner.pic_url}}" class="img-fluid" alt="" style="width:200px; height:100px">
             
           </div>
           <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
+            <h4>{{partner.name}}</h4>
             
           </div>
         </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
-          <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
-            
-          </div>
-          <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
-            
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-          <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
-           
-          </div>
-          <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
-            
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
-          <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
-           
-          </div>
-          <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
-           
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
-          <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
-         
-          </div>
-          <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
-            
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
-          <div class="member-img">
-            <img src="assets/pictures/gift.png" class="img-fluid" alt="">
-            
-          </div>
-          <div class="member-info text-center">
-            <h4>Gift Real Estate</h4>
-           
-          </div>
-        </div><!-- End Team Member -->
+        @end
+       
 
       </div>
 
